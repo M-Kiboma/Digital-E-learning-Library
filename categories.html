@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Digital Library Categories</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #f4f9ff;
+      color: #1e3a8a;
+    }
+
+    header {
+      background-color: #1e3a8a;
+      color: #ffffff;
+      padding: 1.5rem;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 50, 0.2);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-weight: 600;
+    }
+
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .category-card {
+      background-color: #ffffff;
+      border-left: 5px solid #1e3a8a;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 50, 0.05);
+      padding: 1.5rem;
+      text-align: center;
+      font-size: 1.1rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      user-select: none;
+    }
+    .category-card, #category-card a{
+      color: blue;
+      font-size: 20px;
+      text-decoration: none;
+    }
+
+    .category-card:hover {
+      background-color: #e5efff;
+      transform: translateY(-5px);
+    }
+
+    .category-card.selected {
+      border-left-color: #2563eb; /* a brighter blue */
+      background-color: #dbeafe;
+      font-weight: 600;
+    }
+
+    #books-list {
+      background: #fff;
+      border-radius: 10px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 50, 0.05);
+      min-height: 150px;
+    }
+
+    #books-list h3 {
+      margin-top: 0;
+      color: #2563eb;
+    }
+
+    #books-list ul {
+      list-style: disc inside;
+      padding-left: 0;
+    }
+
+    footer {
+      background-color: #1e3a8a;
+      color: #ffffff;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 3rem;
+      font-size: 0.9rem;
+    }
+    
+
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.5rem;
+      }
+
+      .category-card a{
+        font-size: 1rem;
+       
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>E-Learning Digital Library</h1>
+  </header>
+
+  <div class="container">
+    <h2>Library Categories</h2>
+    <div class="categories" id="categories">
+      <a href="programming.html"><div class="category-card" data-category="Programming">📘 Programming</div></a>
+      <a href="mathematics.html"><div class="category-card" data-category="Mathematics">📐 Mathematics</div></a>  
+      <a href="science.html"><science class="html"></science><div class="category-card" data-category="Science">🔬 Science</div></a>
+      <div class="category-card" data-category="Geography">🌍 Geography</div>
+      <a href="history.html"><div class="category-card" data-category="History">🏛️ History</div></a>
+      <div class="category-card" data-category="Chemistry">🧪 Chemistry</div>
+      <div class="category-card" data-category="Physics">⚛️ Physics</div>
+      <div class="category-card" data-category="Biology">🌱 Biology</div>
+      <div class="category-card" data-category="English & Literature">🗣 English & Literature</div>
+      <div class="category-card" data-category="Kiswahili">🇰🇪 Kiswahili</div>
+      <div class="category-card" data-category="Business & Economics">💼 Business & Economics</div>
+      <div class="category-card" data-category="Accounting">📊 Accounting</div>
+      <div class="category-card" data-category="Computer Studies">💻 Computer Studies</div>
+      <div class="category-card" data-category="Entrepreneurship">🚀 Entrepreneurship</div>
+      <div class="category-card" data-category="Life Skills">❤️ Life Skills</div>
+      <div class="category-card" data-category="Civic & Moral Education">📜 Civic & Moral Education</div>
+      <div class="category-card" data-category="Music & Art">🎨 Music & Art</div>
+      <div class="category-card" data-category="Agriculture">🌾 Agriculture</div>
+      <div class="category-card" data-category="Home Science">🍳 Home Science</div>
+      <div class="category-card" data-category="Religious Studies">✝️☪️🕉️ Religious Studies</div>
+      <div class="category-card" data-category="eBooks">📖 eBooks</div>
+      <div class="category-card" data-category="Video Lessons">🎥 Video Lessons</div>
+      <div class="category-card" data-category="Past Exam Papers">📄 Past Exam Papers</div>
+      <div class="category-card" data-category="
