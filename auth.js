@@ -1,9 +1,9 @@
-// auth.js
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import {
   getAuth,
   createUserWithEmailAndPassword,
-  updateProfile
+  updateProfile,
+  signInWithEmailAndPassword
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
 // Your config
@@ -20,7 +20,7 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
 // Handle register
-document.getElementById("registerForm").addEventListener("submit", function (e) {
+document.getElementById("registerForm")?.addEventListener("submit", function (e) {
   e.preventDefault();
 
   const name = document.getElementById("name").value;
@@ -34,10 +34,27 @@ document.getElementById("registerForm").addEventListener("submit", function (e) 
       });
     })
     .then(() => {
-      alert("Registration successful!you can now log in.");
+      alert("Registration successful! You can now log in.");
       window.location.href = "login.html";
     })
     .catch((error) => {
       alert("Error: " + error.message);
+    });
+});
+
+// Handle login
+document.getElementById("loginForm")?.addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const email = document.getElementById("loginEmail").value;
+  const password = document.getElementById("loginPassword").value;
+
+  signInWithEmailAndPassword(auth, email, password)
+    .then(() => {
+      alert("Login successful!");
+      window.location.href = "userdashboard.html";  // Redirect after login
+    })
+    .catch((error) => {
+      alert("Login failed: " + error.message);
     });
 });
