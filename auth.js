@@ -11,11 +11,14 @@ import {
 
 // ✅ Your Firebase config (replace with yours)
 const firebaseConfig = {
+  apiKey: "AIzaSyAjrk9qoc7BoIxTeNkrpiTb_Ka1v2ULMgM",
   authDomain: "library-system-5eee6.firebaseapp.com",
-  projectId: "library-system-5e",
-  apiKey: "AIzaSyAjrk9qoc7BoIxTeNkrpiTb_Ka1v2ULMgMee6",
-  appId: "library-system-5eee6",
+  projectId: "library-system-5eee6",
+  storageBucket: "library-system-5eee6.firebasestorage.app",
+  messagingSenderId: "87185397772",
+  appId: "1:87185397772:web:a2a0a6609b998d42503629"
 };
+
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
