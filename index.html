@@ -1,117 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Library Admin Dashboard</title>
-  <link rel="stylesheet" href="admindashboard.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital library management system</title>
+    <link rel="stylesheet" href="homepage.css">
 </head>
 <body>
+    
+    <header>
+        <nav class="navbar">
+            <h1>Digital library</h1>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="admin.html">Admin Dashboad</a></li>
+                  <li><a href="categories.html">Library</a></li>
+                <li><a href="userdashboard.html">User Dashboard</a></li>
+                <li><a href="login.html">Login</a></li>
+                
+            </ul>
 
-  <div class="container">
-    <h1>Admin Dashboard</h1>
+        </nav>
+    </header>
+    <section class="hero">
+        <h2>Welcome to Digital Library</h2>
+        <p>Access thousands of books, articles, and academic resources online.</p>
+        <a href="categories.html" class="button">Browse Library</a>
 
-    <!-- Add User -->
-    <section>
-      <h2>Add New User</h2>
-      <form id="userForm">
-        <input type="text" id="username" placeholder="Username" required />
-        <input type="email" id="email" placeholder="Email" required />
-        <button type="submit">Add User</button>
-      </form>
-      <ul id="userList"></ul>
     </section>
+    <section class="featured">
+        <h3>Featured Books</h3>
+        <div class="books">
+            <div class="book-card">
+                <h4>Web Development Basics</h4>
+                <p>By Jane Doe</p>
+            </div>
+            <div class="book-card">
 
-    <!-- Add Book -->
-    <section>
-      <h2>Add Book</h2>
-      <form id="bookForm">
-        <input type="text" id="bookTitle" placeholder="Book Title" required />
-        <input type="text" id="bookAuthor" placeholder="Author" required />
-        <button type="submit">Add Book</button>
-      </form>
+                <h4>Learn Python</h4>
+                <p>By John Smith</p>
+            </div>
+            <div class="book-card">
+                 <h4>Modern Business</h4>
+            <p>By Alice Walker</p>
+
+            </div>
+           
+        </div>
+
     </section>
+    <section class="categories">
+        <h3>Categories</h3>
+        <ul class="category-list">
+            <li>Science</li>
+            <li>Technology</li>
+            <li>Business</li>
+            <li>Engeneering</li>
+            <li>Mathematics</li>
+            <li>Education</li>
+            <li>Fiction</li>
 
-    <!-- Search Books -->
-    <section>
-      <h2>Book List</h2>
-      <input type="text" id="searchInput" placeholder="Search books..." />
-      <ul id="bookList"></ul>
+
+        </ul>
+
     </section>
-  </div>
+    <section class="about">
+        <h3>About this library</h3>
+        <p>Our digital Library is a free resource hub for students, teachers, and life long learners.
+            Discover ebooks, research papers, and learning materials on a wide range of topics
+        </p>
 
+    </section>
+    <section class="testimonials">
+        <h3>What users say</h3>
+        <div class="testimonial-card">
+            <p>"This library helped me pass my exams!" -Mary, student</p>
+        </div>
+        <div class="testimonial-card">
+            <p>"A lifesaver for teachers during online learning." -Mr. Otieno, Teachers</p>
+        </div>
 
-
-
-  <!-- Firebase SDK -->
-<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js"></script>
-
-<script>
-  // Your Firebase config (replace with your real config from Firebase Console)
-  const firebaseConfig = {
-    apiKey: "AIzaSyAjrk9qoc7BoIxTeNkrpiTb_Ka1v2ULMgMee6",
-    authDomain: "library-system-5eee6.firebaseapp.com",
-    projectId: "library-system-5e",
-    storageBucket: "library-system-5e.appspot.com",
-    messagingSenderId: "SENDER_ID",
-    appId: "library-system-5eee6"
-  };
-
-  // Initialize Firebase
-  const app = firebase.initializeApp(firebaseConfig);
-  const auth = firebase.auth();
-  const db = firebase.firestore();
-
-      // ✅ Real-time user list
-    db.collection("users").orderBy("createdAt", "desc").onSnapshot(snapshot => {
-      const userList = document.getElementById("userList");
-      userList.innerHTML = "";
-      snapshot.forEach(doc => {
-        const user = doc.data();
-        const li = document.createElement("li");
-        li.textContent = user.email;
-        userList.appendChild(li);
-      });
-    });
-
-    // ✅ Add book
-    document.getElementById("bookForm").addEventListener("submit", function(e) {
-      e.preventDefault();
-      const title = document.getElementById("bookTitle").value;
-      const author = document.getElementById("bookAuthor").value;
-
-      db.collection("books").add({
-        title: title,
-        author: author,
-        createdAt: firebase.firestore.FieldValue.serverTimestamp()
-      }).then(() => {
-        alert("✅ Book added!");
-        document.getElementById("bookForm").reset();
-      });
-    });
-
-    // ✅ Search book
-    document.getElementById("searchInput").addEventListener("input", function() {
-      const query = this.value.toLowerCase();
-      db.collection("books").orderBy("createdAt", "desc").get().then(snapshot => {
-        const bookList = document.getElementById("bookList");
-        bookList.innerHTML = "";
-        snapshot.forEach(doc => {
-          const book = doc.data();
-          if (book.title.toLowerCase().includes(query)) {
-            const li = document.createElement("li");
-            li.textContent = `${book.title} by ${book.author}`;
-            bookList.appendChild(li);
-          }
-        });
-      });
-    });
-
-</script>
-
-
-  <script src="admindashboard.js"></script>
+    </section>
+    <footer>
+        <p>©2025 Digital Library. All rights reserved</p>
+    </footer>
 </body>
 </html>

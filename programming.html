@@ -1,25 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Programming</title>
-</head>
-<style>
-    a{
-        font-size: 30px;
-        display: flex;
-        text-decoration: none;
-        color: blue;
-        padding: 20px;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Programming</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+      background-color: #f4f4f4;
     }
-</style>
+
+    .wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 20px;
+      padding: 40px 20px;
+    }
+
+    .box a {
+      background-color: #2b28b8d5;
+      color: white;
+      padding: 20px;
+      width: 250px;
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      text-decoration: none;
+      font-size: 18px;
+      transition: background-color 0.3s ease;
+      box-sizing: border-box;
+    }
+
+    .box a:hover {
+      background-color: #1a189d;
+    }
+
+    @media (max-width: 600px) {
+      .box a {
+        width: 90vw;
+        font-size: 16px;
+        padding: 25px;
+      }
+    }
+  </style>
+</head>
 <body>
-  
-    <a href="books/programming/Introduction to Java.pdf">Introduction To Java</a>
-    <a href= "books/programming/concepts of programming languages.pdf">Programming Concepts</a>
-    <a href="books/programming/C Programming.pdf">Programming</a>
-       <a href="books/programming/Learning_Python.pdf">Python</a>
-          <a href="books/programming/Introduction_to_Python_Programming.pdf">Introduction to Python Programming</a>
+  <div class="wrapper">
+    <div class="box"><a href="Introduction to Java.pdf">Introduction to Java</a></div>
+    <div class="box"><a href="concepts of programming languages.pdf">Programming Concepts</a></div>
+    <div class="box"><a href="C Programming.pdf">C Programming</a></div>
+    <div class="box"><a href="Learning_Python.pdf">Python</a></div>
+    <div class="box"><a href="Introduction_to_Python_Programming.pdf">Intro to Python Programming</a></div>
+  </div>
 </body>
 </html>
